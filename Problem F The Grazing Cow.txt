@@ -1,0 +1,16 @@
+import java.util.*;
+public class main{
+	public static void main(String[] argv){
+		Scanner in = new Scanner(System.in);
+		double PI = 2*Math.acos(0);
+		int n = in.nextInt();
+		for(int i=0;i<n;i++){
+			int d = in.nextInt();
+			int l = in.nextInt();
+			double a = (double)l/2;
+			double c = (double)d/2;
+			double b = Math.sqrt(a*a-c*c);
+			System.out.printf("%.3f\r\n",PI*a*b);
+		}
+	}
+}

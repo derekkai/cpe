@@ -1,0 +1,26 @@
+import java.io.*;
+import java.util.*;
+
+
+public class main {
+	public static void main(String[] args) throws IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		HashMap<String, String> dict = new HashMap<String, String>();
+		String line;
+		while (!(line = in.readLine()).isEmpty()) {
+			String[] parts = line.split("[ ]");
+			String english = parts[0];
+			String foreign = parts[1];
+			dict.put(foreign, english);
+		}
+		while ((line = in.readLine()) != null) {
+			if (dict.containsKey(line))
+				System.out.println(dict.get(line));
+			else
+				System.out.println("eh");
+		}
+		
+		in.close();
+		System.exit(0);
+	}
+}

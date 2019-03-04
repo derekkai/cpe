@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+public class main{	
+	public static void main(String argv[])throws IOException{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String str = "";
+		Scanner sc = new Scanner(System.in);
+		while(sc.hasNext()){
+			int p = sc.nextInt();//3
+			int []a = new int[p];
+			int sub;
+			boolean isjolly = true;
+			for(int i=0;i<p;i++)
+				a[i] = sc.nextInt();
+			HashSet< Integer> h=new HashSet< Integer>();
+			for(int i=0;i<a.length - 1;i++)
+				h.add( Math.abs( a[i] - a[i+1]));
+			for(int k=1;k<p;k++){
+				if(!h.contains(k)){
+					isjolly = false;
+					break;
+				}
+			}
+			if(isjolly)
+				System.out.println("Jolly");
+			else 
+				System.out.println("Not jolly");	
+	   }
+	}	
+}

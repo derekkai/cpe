@@ -1,0 +1,38 @@
+public class main{
+	public static void main(String argv[]){
+		Scanner sc = new Scanner(System.in);
+		int num1 , num2;
+	    StringBuffer bstr = new StringBuffer();
+	    
+		while((num1 = sc.nextInt()) != 0){
+			num2 = sc.nextInt();
+			boolean carry = false;
+			int carrysum = 0;
+			while(num1 != 0||num2 != 0){
+				int temp1 = num1%10;
+				int temp2 = num2%10;
+				int tempsum = temp1 + temp2;
+				if(carry){
+					tempsum++;
+					carry = false;
+				}
+				if(tempsum > 9){
+					carrysum++;
+					carry = true;
+				}
+				num1 /= 10;
+				num2 /= 10;	
+			}
+			//System.out.print(carrysum);
+			if(carrysum == 0){
+				System.out.println("No carry operation.");
+			}
+			if(carrysum == 1){
+				System.out.println(carrysum + " carry operation.");
+			}
+			else if (carrysum > 1 ){
+				System.out.println(carrysum + " carry operations.");
+			}		
+		}
+	}
+}

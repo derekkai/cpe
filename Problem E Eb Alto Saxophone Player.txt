@@ -1,0 +1,84 @@
+import java.util.*;
+class Check{
+	static int mach(char ch){
+		int n = 0;
+		if(ch=='c')
+	    	 n = 0;
+		else if(ch=='d')
+			 n = 1;
+		else if(ch=='e')
+			 n = 2;
+		else if(ch=='f')
+			 n = 3;
+		else if(ch=='g')
+			 n = 4;
+		else if(ch=='a')
+			 n = 5;
+		else if(ch=='b')
+			 n = 6;
+		else if(ch=='C')
+			 n = 7;
+		else if(ch=='D')
+			 n = 8;
+		else if(ch=='E')
+			 n = 9;
+		else if(ch=='F')
+			 n = 10;
+		else if(ch=='G')
+			 n = 11;
+		else if(ch=='A')
+			 n = 12;
+		else if(ch=='B')
+			 n = 13;
+		return n;
+	}
+}
+
+public class main{
+	public static void main(String[] argv){
+		Scanner in = new Scanner(System.in);
+		
+		int [][] list = {
+			{0,1,1,1,0,0,1,1,1,1},//c
+			{0,1,1,1,0,0,1,1,1,0},//d   
+			{0,1,1,1,0,0,1,1,0,0},//e
+			{0,1,1,1,0,0,1,0,0,0},//f
+			{0,1,1,1,0,0,0,0,0,0},//g
+			{0,1,1,0,0,0,0,0,0,0},//a
+			{0,1,0,0,0,0,0,0,0,0},//b
+			{0,0,1,0,0,0,0,0,0,0},//C
+			{1,1,1,1,0,0,1,1,1,0},//D
+			{1,1,1,1,0,0,1,1,0,0},//E
+			{1,1,1,1,0,0,1,0,0,0},//F
+			{1,1,1,1,0,0,0,0,0,0},//G
+			{1,1,1,0,0,0,0,0,0,0},//A
+			{1,1,0,0,0,0,0,0,0,0}//B
+		};
+		int [] finger = new int[10];
+		int n = Integer.parseInt(in.nextLine());
+		for(int i=0;i<n;i++){
+			String str = in.nextLine();
+			int num1 = Check.mach(str.charAt(0));
+			for(int k=0;k<finger.length;k++){
+				finger[k] = list[num1][k];
+			}
+			for(int k=1;k<str.length();k++){
+				int num2 = Check.mach(str.charAt(k));
+				for(int j=0;j<finger.length;j++){
+					if(list[num2][j]==1&&list[num1][j]==0)
+						finger[j]++;
+				}
+				num1 = num2;	
+			}
+			int m=0;
+			for(int temp : finger){
+				m++;
+				if(m>1)
+				System.out.print(" ");
+				System.out.print(temp);
+				
+			}
+				System.out.println();
+		}
+	}
+}

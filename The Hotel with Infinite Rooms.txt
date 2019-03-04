@@ -1,0 +1,15 @@
+import java.util.*;
+public class main{
+	public static void main(String[] argv){
+		Scanner in = new Scanner(System.in);
+		while(in.hasNext()){
+			int s = in.nextInt();
+			long g = in.nextLong();
+			while(g>0){
+				g -= s;
+				s++;
+			}
+			System.out.println(--s);
+		}
+	}
+}

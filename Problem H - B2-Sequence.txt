@@ -1,0 +1,42 @@
+import java.util.*;
+public class main{
+	public static void main(String[] argv){
+		Scanner in = new Scanner(System.in);
+		int c=0;
+		while(in.hasNext()){
+			c++;
+			int n = in.nextInt();
+			int[] num = new int[n];
+			int[] sum = new int[20000];
+			boolean isb2 = true;
+			int last;
+			for(int i=0;i<n;i++){
+				num[i]=in.nextInt();
+			}
+			last = num[0];
+			for(int i=1;i<num.length;i++){
+				if(num[i]<last)
+					isb2 = false;
+				last = num[i];
+			}
+			if(isb2){
+				for(int i=0;i<num.length;i++){
+					for(int j=i;j<num.length;j++){
+						sum[num[i]+num[j]]++;
+					}
+				}
+				for(int i=0;i<sum.length;i++){
+					if(sum[i]>1){
+						isb2 = false;
+						break;
+					}
+				}
+			}
+			if(isb2)
+				System.out.println("Case #"+c+": It is a B2-Sequence.");
+			else
+				System.out.println("Case #"+c+": It is not a B2-Sequence.");
+			System.out.println();
+		}
+	}
+}

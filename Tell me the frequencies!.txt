@@ -1,0 +1,37 @@
+import java.util.*;
+import java.io.*;
+
+public class main{
+	public static void main(String[] argv){
+		
+		Scanner enter = new Scanner(System.in);
+		String str;
+		int[] save = new int[97];
+		char c;
+		int count=0;
+		boolean deal = false;
+		
+		while(enter.hasNext()){
+			if(deal)
+				System.out.println();
+				
+			str = enter.nextLine();
+			
+			for(int i=0;i<str.length();i++){
+				c =str.charAt(i);
+				save[c-32]++;
+				count++;
+			}
+			for(int j=1;j<=count;j++){
+				for(int s =96;s>=0;s--){
+					if(save[s]==j){
+						System.out.println((s+32)+" "+j);
+						save[s] = 0;
+					}
+				}
+			}
+		count=0;
+		deal = true;
+		}		
+	}
+}

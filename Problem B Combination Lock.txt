@@ -1,0 +1,30 @@
+import java.util.*;
+public class main{
+	public static void main(String[] argv){
+		Scanner in = new Scanner(System.in);
+		int n,q1,q2,q3,degree=0;
+		while(in.hasNext()){
+			n = in.nextInt();
+			q1 = in.nextInt();
+			q2 = in.nextInt();
+			q3 = in.nextInt();
+			if((n|q1|q2|q3) == 0)
+				break;
+			degree = 720;
+			if(n>q1)
+				degree += (n - q1)*9;
+			else
+				degree += ((40-q1)+n)*9;		
+			degree += 360;
+			if(q1>q2)
+				degree += ((40-q1)+q2)*9;
+			else
+				degree += (q2-q1)*9;
+			if(q2>q3)
+				degree += (q2-q3)*9;
+			else
+				degree += ((40-q3)+q2)*9;
+			System.out.println(degree);
+		}
+	}
+}

@@ -1,0 +1,23 @@
+import java.math.BigInteger;
+import java.util.*;
+public class main{
+	public static void main(String[] argv){
+		Scanner in = new Scanner(System.in);
+		BigInteger c = new BigInteger("11");
+		
+		while(in.hasNext()){
+			String str = in.nextLine().trim();
+			if(str.equals(""))
+				continue;
+			BigInteger a = new BigInteger(str);
+			BigInteger b = a.mod(c);
+			if(str.equals("0"))
+				break;
+			
+			if(b == BigInteger.ZERO)
+				System.out.println(str + " is a multiple of 11.");
+			else
+				System.out.println(str + " is not a multiple of 11.");
+		}
+	}
+}

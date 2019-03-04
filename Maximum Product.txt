@@ -1,0 +1,31 @@
+import java.util.*;
+public class main{
+	public static void main(String[] argv){
+		Scanner in = new Scanner(System.in);
+		int c=0;
+		while(in.hasNext()){
+			c++;
+			int n = in.nextInt();
+			int[] num = new int[n];
+			Long max=0L;
+			int count;
+			for(int i=0;i<n;i++){
+				num[i]=in.nextInt();
+			}
+			for(int i=0;i<num.length;i++){
+				if(num[i]>max)
+					max = (long)num[i];
+				for(int j=0;j<num.length;j++){
+					Long total = 1L;
+					for(int k=i;k<=j;k++){
+						total*=(long)num[k];
+					}	
+					if(total>max)
+						max = total;
+				}
+			}
+			System.out.println("Case #"+c+": The maximum product is "+max+".");
+			System.out.println();
+		}
+	}
+}

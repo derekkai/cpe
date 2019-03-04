@@ -1,0 +1,46 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+
+public class main{
+	public static void main(String[] argv){
+		Scanner in = new Scanner(System.in);
+		HashMap<String,Integer> hm = new HashMap<String,Integer>();
+		TreeSet<String> ts = new TreeSet<String>();
+		
+		int volume = in.nextInt();
+		in.nextLine();
+		in.nextLine();
+		for(int i=0;i<volume;i++){
+			int total = 0;
+			String s;
+			while(in.hasNext()){
+				s = in.nextLine();
+				if(s.equals("")){
+					break;
+				}
+				ts.add(s);
+				if(hm.containsKey(s)){
+    				int count = hm.get(s);
+    				hm.put(s, ++count);
+				}
+				else{
+     				hm.put(s,1); 
+				}
+
+				total++;
+			}
+			Iterator<String> it = ts.iterator();
+			while(it.hasNext()){
+				String plant = it.next();
+				double p_percentage = hm.get(plant);
+				System.out.printf("%s %.4f",plant,(p_percentage * 100/total));
+				System.out.println();
+			}
+			ts.clear();
+			hm.clear();
+			if(i+1<volume)System.out.println();
+		}
+	}
+}

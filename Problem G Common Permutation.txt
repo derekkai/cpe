@@ -1,0 +1,28 @@
+import java.util.*;
+public class main{
+	public static void main(String[] argv){
+		Scanner in = new Scanner(System.in);
+		while(in.hasNext()){
+			int a=0;
+			int[] num = new int[1000];
+			boolean[] check = new boolean[1000];
+			String sa = in.nextLine();
+			String sb = in.nextLine();
+			for(int i=0;i<sa.length();i++){
+				for(int j=0;j<sb.length();j++){
+					if(sa.charAt(i)==sb.charAt(j)&&!check[j]&&sa.charAt(i)!=' '){
+						num[a++]=(int)(sb.charAt(j));
+						check[j] = true;
+						break;
+					}
+				}
+			}
+			Arrays.sort(num);
+			for(int temp:num){
+				if(temp!=0)
+				System.out.print((char)(temp));
+			}
+			System.out.println();
+		}
+	}
+}

@@ -1,0 +1,57 @@
+import java.util.*;
+//import java.io.*;
+class  Compare{
+	int p;
+	int e;
+	int temp;
+	public Compare(int p,int e){
+		this.p=p;
+		this.e=e;
+	}
+	public  void change(){
+		  temp = e;
+		  e = p;
+		  p = temp;
+	}
+}
+
+public class main{
+	public static void main(String[] args){
+		Scanner scan=new Scanner(System.in);
+        int p=0;
+        int e=0;
+        while (p!=-1){
+          int temp = 0;
+          p = scan.nextInt();   
+          e = scan.nextInt();
+          System.out.print(p + " "+ e);
+          if(p > e){
+            Compare c = new Compare(p,e);
+          	c.change();
+          	p = c.p;
+          	e = c.e;
+          }
+          for(int i = p;i<=e;i++){
+            int num = i;
+            int count = 0;
+          	while(num!=1){
+          		
+          		//System.out.print(num+" ");
+          		if(num%2==1){//odd
+          			num = 3*num+1;
+          			count++;
+          		}
+          		else if(num%2==0){
+          			num = num/2;
+          			count++;
+          		}
+          	}
+          	count+=1;
+          	if(temp < count){
+          		temp = count;
+          	}
+          }
+          System.out.println(" " + temp);   
+        }
+	}
+}

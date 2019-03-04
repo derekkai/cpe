@@ -1,0 +1,22 @@
+import java.util.*;
+public class main{
+	public static void main(String[] argv){
+		double PI = 2*Math.acos(0);
+		Scanner in = new Scanner(System.in);
+		int n = in.nextInt();
+		in.nextLine();
+		for(int i=0;i<n;i++){
+			String[] str = in.nextLine().split(" ");
+			if(str.length == 1){
+				int t = Integer.parseInt(str[0]);
+				System.out.printf("%.4f\r\n",(double)(t)/2*(double)(t)/2*PI - 
+					2*((double)(t)/4*(double)(t)/4*PI));	
+			}
+			else{
+				int r1 = Integer.parseInt(str[0]);
+				int r2 = Integer.parseInt(str[1]);
+				System.out.printf("%.4f\r\n",((r1+r2)*(r1+r2)*PI)-(r1*r1*PI)-(r2*r2*PI));
+			}
+		}
+	}
+}

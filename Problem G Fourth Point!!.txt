@@ -1,0 +1,37 @@
+import java.util.*;
+public class main{
+	public static void main(String[] argv){
+		Scanner in = new Scanner(System.in);
+		while(in.hasNext()){
+			double a_x = in.nextDouble();
+			double a_y = in.nextDouble();
+			double b_x = in.nextDouble();
+			double b_y = in.nextDouble();
+			double c_x = in.nextDouble();
+			double c_y = in.nextDouble();
+			double d_x = in.nextDouble();
+			double d_y = in.nextDouble();
+			
+			double answer_x = 0,answer_y = 0;
+			if(a_x == c_x && a_y == c_y){
+				answer_x = b_x - a_x + d_x;
+				answer_y = b_y - a_y + d_y;
+			}
+			else if(a_x == d_x && a_y == d_y){
+				answer_x = b_x - a_x + c_x;
+				answer_y = b_y - a_y + c_y;
+			}
+			else if(b_x == c_x && b_y == c_y){
+				answer_x = a_x - b_x + d_x;
+				answer_y = a_y - b_y + d_y;
+			}
+			else{
+				answer_x = a_x - b_x + c_x;
+				answer_y = a_y - b_y + c_y;
+			}
+			System.out.printf("%.3f %.3f",answer_x,answer_y);
+			System.out.println();
+		}
+		in.close();
+	}
+}

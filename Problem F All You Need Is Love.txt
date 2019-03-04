@@ -1,0 +1,24 @@
+import java.util.*;
+public class main{
+	public static void main(String[] argv){
+		Scanner in = new Scanner(System.in);
+		String count = in.nextLine();
+		int pair = 1;
+		while(in.hasNext()){
+			
+			int num1 = Integer.parseInt(in.nextLine() , 2);
+			int num2 = Integer.parseInt(in.nextLine() , 2);
+			
+			int temp;
+			while(num1%num2!=0){
+				temp = num1%num2;
+				num1 = num2;
+				num2 = temp; 
+			}
+			System.out.println(num2!=1?"Pair #"+pair+": All you need is love!":
+			"Pair #"+pair+": Love is not all you need!");
+			pair++;
+		}
+		in.close();
+	}
+}

@@ -1,0 +1,26 @@
+import java.util.*;
+public class main{
+	public static void main(String[] argv){
+		Scanner in = new Scanner(System.in);
+		int N;
+		while((N = in.nextInt())!=0){
+			System.out.printf("%d : %d\r\n",N,countthefactors(N));
+		}
+	}
+	public static int countthefactors(int n){
+		int count = 0;
+		if(n%2==0){
+			count++;
+		while(n%2==0)
+			n /=2;
+		}
+		for(int i=3;n!=1;i+=2){
+			if(n%i==0){
+				count++;
+				while(n%i==0)
+				n /= i;
+			}
+		}
+		return count;
+	}
+	

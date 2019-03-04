@@ -1,0 +1,18 @@
+/*使用PI=3.14159可能不夠精確，請用2.0*acos(0.0)作為PI的值。*/
+import java.util.*;
+public class main{
+	public static void main(String[] argv){
+		final double PI = 2.0*Math.acos(0.0);
+		Scanner in = new Scanner(System.in);
+		while(in.hasNext()){
+			double a = in.nextDouble();
+			double t = a*a*PI/6 - a*a*Math.sqrt(3)/4;
+			double p = a*a*PI/12 - t;
+			double x = a*a - 4*p;
+			double z = 4*(a*a - a*a*PI/4 - p);
+			double y = 4*(p - z/4);
+			System.out.printf("%.3f %.3f %.3f",x,y,z);
+			System.out.println();
+		}
+	}
+}

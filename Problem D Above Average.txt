@@ -1,0 +1,24 @@
+import java.util.*;
+public class main{
+	public static void main(String[] argv){
+		Scanner in = new Scanner(System.in);
+		int c = in.nextInt();
+		for(int i=0;i<c;i++){
+			int n  = in.nextInt();
+			int[] num = new int[n];
+			int total=0,average;
+			for(int j=0;j<n;j++){
+				num[j] =  in.nextInt();
+				total += num[j];
+			}
+			average = total / n;
+			int num2=0;
+			for(int k=0;k<num.length;k++){
+				if(num[k]>average){
+					num2++;
+				}
+			}
+		System.out.printf("%2.3f%%\r\n",(double)num2/n*100);
+		}	
+	}
+}

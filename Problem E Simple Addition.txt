@@ -1,0 +1,23 @@
+import java.util.*;
+public class main{
+	public static void main(String[] argv){
+		Scanner in = new Scanner(System.in);
+		Long p,q;
+		while((p = in.nextLong())!=-1){
+			q = in.nextLong();
+			System.out.printf("%d\r\n",Simple(q)-Simple(p-1));
+		}
+	}
+	public 	static Long Simple(Long n){
+		if(n<=0)
+			return 0L;
+		Long sum=0L;
+		while(n!=0){
+			sum += (n/10)*45;
+			for(Long i = n/10*10+1;i<=n;i++)
+				sum += i%10;
+			n/=10;
+		}
+		return sum;
+	}	
+}

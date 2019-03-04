@@ -1,0 +1,42 @@
+import java.util.*;
+public class main{
+	public static void main(String[] argv){
+		Scanner in = new Scanner(System.in);
+		int n = in.nextInt();
+		int ca=0;
+		for(int i=0;i<n;i++){
+			ca++;
+			if(ca>1)
+				System.out.println();
+			System.out.println("Case "+ca+":");
+			int[] array = new int[36]; 
+			for(int j=0;j<36;j++){
+				array[j] = in.nextInt();
+			}
+			int c = in.nextInt();
+			for(int j=0;j<c;j++){
+				int a = in.nextInt();
+				int min=Integer.MAX_VALUE,m=0;
+				int[] cost = new int[37];
+				for(int o=2;o<=36;o++){
+					String str2 = Integer.toString(a,o);
+					int sum=0;
+					for(int k=0;k<str2.length();k++){
+						sum+=array[Character.getNumericValue(str2.charAt(k))];
+					}
+					cost[o]=sum;
+					if(sum<=min){
+							min = sum;
+							m=o;
+					}
+				}
+				System.out.print("Cheapest base(s) for number "+a+":");
+				for(int o=0;o<cost.length;o++){
+					if(cost[o] == min)
+						System.out.print(" "+o);
+				}
+				System.out.println();		
+			}
+		}
+	}
+}

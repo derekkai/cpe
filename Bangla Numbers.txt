@@ -1,0 +1,45 @@
+import java.util.*;
+class Divide{
+	long temp;
+	public void analysis(long innum){
+		if(innum >= 10000000){
+			analysis(innum/10000000);
+			System.out.print(" kuti");
+			innum %= 10000000;
+		}
+		if(innum >= 100000){
+			analysis(innum/100000);
+			System.out.print(" lakh");
+			innum %= 100000;
+		}
+		if(innum >= 1000){
+			analysis(innum/1000);
+			System.out.print(" hajar");
+			innum %= 1000;
+		}
+		if(innum >= 100){
+			analysis(innum/100);
+			System.out.print(" shata");
+			innum %= 100;
+		}
+		if(innum != 0)
+	  		System.out.print(" "+innum);
+	}
+}
+public class main{
+	public static void main(String[] argv){
+		Scanner in = new Scanner(System.in);
+		int i=0;
+		while(in.hasNext()){
+			long num = in.nextLong();
+			i++;
+			System.out.printf("%4d.",i);
+			if(num == 0){
+				System.out.print(" 0");
+			}
+			Divide d = new Divide();
+			d.analysis(num);
+			System.out.println("");
+		}
+	}
+}

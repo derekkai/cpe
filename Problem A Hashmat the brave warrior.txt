@@ -1,0 +1,13 @@
+import java.util.*;
+public class main{
+	public static void main(String argv[]){
+		Scanner sc = new Scanner(System.in);
+		Long p=0L,e;
+		while(p!=-1){
+			p = sc.nextLong();
+			e = sc.nextLong();
+			Long sub = Math.abs(p-e);
+			System.out.println(sub);
+		}
+	}
+}

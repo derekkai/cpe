@@ -1,0 +1,31 @@
+import java.util.*;
+class Counter{
+	int count(String b){
+		int countb = 0;
+		for(int i=0;i<b.length();i++){
+			if(b.charAt(i)== '1')
+				countb++;
+		}
+		return countb;
+	}	
+}
+public class main{
+	public static void main(String argv[]){
+		Scanner sc = new Scanner(System.in);
+		Counter c = new Counter();
+		int a = sc.nextInt();//3
+		//System.out.println(a);
+		int b;
+		String b1,b2;
+		Long temp;
+		while(a != -1){
+			b = sc.nextInt();//256
+			b1 = Integer.toBinaryString(b);
+			//System.out.println(b1);
+			temp = Long.parseLong(Integer.toString(b),16);
+			b2 = Long.toBinaryString(temp);
+			//System.out.println(b2);
+			System.out.println(c.count(b1) + " " + c.count(b2));			
+		}	
+	}
+}

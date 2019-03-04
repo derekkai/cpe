@@ -1,0 +1,13 @@
+import java.util.*;
+public class main{
+	public static void main(String[] argv){
+		Scanner in = new Scanner(System.in);
+		while(in.hasNext()){
+			double L = in.nextDouble();
+			double W = in.nextDouble();
+			double b = (L + W - Math.sqrt((double)(L*L-L*W+W*W)))/6;
+			System.out.printf("%.3f 0.000 %.3f",b,Math.min(W,L)/2);
+			System.out.println();
+		}
+	}
+}

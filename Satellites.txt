@@ -1,0 +1,21 @@
+import java.math.*;
+public class main{
+	public static void main(String[] argv){
+		Scanner in = new Scanner(System.in);
+		double s,r=6440,a;
+		
+		while(in.hasNext()){
+		    s = in.nextDouble();
+			a = in.nextDouble();
+			String str = in.nextLine();
+		    if(str.contains("min"))
+		    	a = a/60;
+		    if(a > 180)
+		        a = 360 - a;
+		    double R = s+r;
+		    a = Math.PI/180*a;
+		    System.out.printf("%.6f %.6f",R*a,Math.sqrt(2*R*R*(1-Math.cos(a))));
+		    System.out.println();	
+		}
+	}
+}

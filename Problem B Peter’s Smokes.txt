@@ -1,0 +1,18 @@
+import java.util.*;
+public class main{
+	public static void main(String[] argv){
+		Scanner in = new Scanner(System.in);
+		while(in.hasNext()){
+			int n = in.nextInt();
+			int k = in.nextInt();
+			int cigareffe = n;
+			int still;
+			for(int i=n;i>=k;i+=still){
+				still = i%k;
+				i/=k;
+				cigareffe+=i;
+			}
+			System.out.println(cigareffe);
+		}	
+	}
+}

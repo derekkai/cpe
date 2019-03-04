@@ -1,0 +1,39 @@
+import java.util.*;
+public class main{
+	public static void main(String[] argv){
+		Scanner in = new Scanner(System.in);
+		int f = in.nextInt();
+		for(int i=0;i<f;i++){
+			int l = in.nextInt();
+			int n = in.nextInt();
+			int min=0,max=0,mind=0,maxd=0,mid = l/2,dis;
+			for(int j=0;j<n;j++){
+				int num = in.nextInt();
+				dis = Math.abs(num - mid);
+				if(j==0){
+					mind = maxd = dis;
+					min = max = num;
+				}
+				else {
+					if(dis < mind){
+						mind = dis;
+						min = num;
+					}
+					else if(dis > maxd){
+						maxd = dis;
+						max = num;
+					}
+				}	
+			}
+			if(min > mid)
+				System.out.print(l-min+" ");
+			else
+				System.out.print(min+" ");
+			if(max > mid)
+				System.out.print(max);
+			else
+				System.out.print(l-max);
+			System.out.println();
+		}
+	}
+}
